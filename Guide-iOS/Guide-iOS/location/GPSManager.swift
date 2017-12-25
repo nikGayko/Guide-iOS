@@ -13,6 +13,7 @@ final class GPSManager: NSObject, CLLocationManagerDelegate {
     }
     
     private var locationManager: CLLocationManager?
+    private var eventListener: GPSEventListener?
     
     private override init() {
         super.init()
@@ -45,8 +46,16 @@ final class GPSManager: NSObject, CLLocationManagerDelegate {
         locationManager?.stopMonitoringSignificantLocationChanges()
     }
     
+    func subscribeForEvents(_ eventListener: GPSEventListener) {
+        self.eventListener = eventListener
+    }
+    
+    func unsubscribeFromEvents() {
+        self.eventListener = nil
+    }
+    
     //MARK: locationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        SwiftyBeaver.debug(locations[0].coordinate)
+        eventListener?.locationDidChange(locations[0].coordinate.toLocation())
     }
 }

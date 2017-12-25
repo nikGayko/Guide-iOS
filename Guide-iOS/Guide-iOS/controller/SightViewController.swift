@@ -2,12 +2,21 @@ import Foundation
 import UIKit
 import SwiftyBeaver
 
-class SightViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class SightViewController: BaseViewController, AppManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var sightTableView: UITableView!
     
+    private var tableContent: [Sight]! {
+        didSet {
+            sightTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableContent = AppManager.shared.nearbySightArray
+        AppManager.shared.setDelegate(self)
         
         setupSightTable()
     }
@@ -24,12 +33,18 @@ class SightViewController: BaseViewController, UITableViewDelegate, UITableViewD
         sightTableView.dataSource = self
     }
     
+    //MARK: AppManagerDelegate
+    func nearbySightDidChange(newValue value: [Sight]) {
+        tableContent = value
+    }
+    
+    //MARK: tableView datasource & delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return tableContent.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +62,7 @@ class SightViewController: BaseViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-        //config cell
+        sightCell.sight = tableContent[indexPath.row]
     }
 }
 
