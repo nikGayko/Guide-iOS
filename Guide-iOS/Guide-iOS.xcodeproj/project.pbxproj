@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841545BF1FF4332400D62388 /* AvailableTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841545BE1FF4332400D62388 /* AvailableTheme.swift */; };
+		841545C11FF4355200D62388 /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841545C01FF4355200D62388 /* UIColor+init.swift */; };
+		841545C31FF4370C00D62388 /* AppColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841545C21FF4370C00D62388 /* AppColorTheme.swift */; };
+		841545C51FF43F9700D62388 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841545C41FF43F9700D62388 /* Theme.swift */; };
 		8462702D1FF0E77C00D1BE5F /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462702C1FF0E77C00D1BE5F /* WikipediaAPI.swift */; };
 		8462702F1FF0E89300D1BE5F /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462702E1FF0E89300D1BE5F /* URLBuilder.swift */; };
 		846270321FF0EC9C00D1BE5F /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846270311FF0EC9C00D1BE5F /* Sight.swift */; };
@@ -59,6 +63,10 @@
 		1896D7DDB148B08EEFC7036C /* Pods-Guide-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guide-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Guide-iOSUITests/Pods-Guide-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1C7822FC411F65F43AEF34E6 /* Pods-Guide-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guide-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Guide-iOSTests/Pods-Guide-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		49C06F33CCC125521608F600 /* Pods-Guide-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guide-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Guide-iOSUITests/Pods-Guide-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		841545BE1FF4332400D62388 /* AvailableTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTheme.swift; sourceTree = "<group>"; };
+		841545C01FF4355200D62388 /* UIColor+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+init.swift"; sourceTree = "<group>"; };
+		841545C21FF4370C00D62388 /* AppColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorTheme.swift; sourceTree = "<group>"; };
+		841545C41FF43F9700D62388 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8462702C1FF0E77C00D1BE5F /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
 		8462702E1FF0E89300D1BE5F /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		846270311FF0EC9C00D1BE5F /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
@@ -146,6 +154,17 @@
 				091CE5CB4B7EA1A0E4B802F3 /* Pods_Guide_iOSUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		841545BD1FF4330500D62388 /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				841545C41FF43F9700D62388 /* Theme.swift */,
+				841545BE1FF4332400D62388 /* AvailableTheme.swift */,
+				841545C21FF4370C00D62388 /* AppColorTheme.swift */,
+				841545C01FF4355200D62388 /* UIColor+init.swift */,
+			);
+			path = theme;
 			sourceTree = "<group>";
 		};
 		846270301FF0EC8400D1BE5F /* model */ = {
@@ -255,6 +274,7 @@
 		84DBF2311FEFC5180038C581 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				841545BD1FF4330500D62388 /* theme */,
 				84DBF2051FEFBC9F0038C581 /* LaunchScreen.storyboard */,
 				84DBF2001FEFBC9F0038C581 /* Main.storyboard */,
 				84B504F41FF04F4F0000241C /* SightCellView.xib */,
@@ -579,7 +599,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DBF2301FEFC0780038C581 /* GPSManager.swift in Sources */,
+				841545C31FF4370C00D62388 /* AppColorTheme.swift in Sources */,
 				846270341FF0FAC500D1BE5F /* Location.swift in Sources */,
+				841545C51FF43F9700D62388 /* Theme.swift in Sources */,
 				84F47AC31FEFD6540004FE49 /* UIUserNotificationType+authorizationOptions.swift in Sources */,
 				84F2CD3A1FF18BB40023B494 /* TabBarController.swift in Sources */,
 				8462702F1FF0E89300D1BE5F /* URLBuilder.swift in Sources */,
@@ -595,8 +617,10 @@
 				84F2CD381FF18AE30023B494 /* SettingsViewController.swift in Sources */,
 				84B504F71FF0510F0000241C /* SightCellController.swift in Sources */,
 				8462702D1FF0E77C00D1BE5F /* WikipediaAPI.swift in Sources */,
+				841545BF1FF4332400D62388 /* AvailableTheme.swift in Sources */,
 				846270361FF0FF7700D1BE5F /* CLLocationCoordinate2D+toLocation().swift in Sources */,
 				84DBF22D1FEFBFB10038C581 /* Notification.swift in Sources */,
+				841545C11FF4355200D62388 /* UIColor+init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

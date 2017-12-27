@@ -9,6 +9,7 @@ final class AppManager: GPSEventListener {
         nearbySightArray = [Sight]()
         GPSManager.sharedInstance().subscribeForEvents(self)
         isWorking = true
+        AppColorTheme.shared.setColorThemeThroughApp(.purple)
     }
     
     private var managerDelegate: AppManagerDelegate?
