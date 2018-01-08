@@ -6,9 +6,9 @@ public class AppColorTheme {
     
     private init() { }
     
-    public var currentTheme: AvailableTheme?
+    public var currentTheme: ThemeItems?
     
-    public func setColorThemeThroughApp(_ theme: AvailableTheme) {
+    public func setColorThemeThroughApp(_ theme: ThemeItems) {
         currentTheme = theme
         applyColor(theme.getTheme())
     }
