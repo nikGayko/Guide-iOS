@@ -4,15 +4,16 @@ import SwiftyBeaver
 class SettingsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    private var tableDataSource: UITableViewDataSource?
+
     private var sectionModelItemArray = [SectionItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appSettings = AppSettingsSectionItem(appSettings: AppManager.shared.appSettings)
-        let gpsSettings = GpsSettingsSectionItem(gpsSettings: AppManager.shared.gpsSettings)
-        sectionModelItemArray.append(appSettings)
-        sectionModelItemArray.append(gpsSettings)
+        setupModelItemArray()
+        
+        tableDataSource = SettingsDataSource(withItems: sectionModelItemArray)
         
         setupTableView()
     }
@@ -22,11 +23,18 @@ class SettingsViewController: BaseViewController {
     
     }
     
+    private func setupModelItemArray() {
+        let appSettings = AppSettingsSectionItem(appSettings: AppManager.shared.appSettings)
+        let gpsSettings = GpsSettingsSectionItem(gpsSettings: AppManager.shared.gpsSettings)
+        sectionModelItemArray.append(appSettings)
+        sectionModelItemArray.append(gpsSettings)
+    }
+    
     private func setupTableView() {
         tableView.register(SwitchCell.nib, forCellReuseIdentifier: SwitchCell.identifier)
         tableView.register(PickerCell.nib, forCellReuseIdentifier: PickerCell.identifier)
         
-        tableView.dataSource = SettingsDataSource(sectionModalItemArray: sectionModelItemArray)
+        tableView.dataSource = tableDataSource
     }
 }
 
@@ -34,7 +42,7 @@ fileprivate class SettingsDataSource: NSObject, UITableViewDataSource {
     
     private var sectionModalItemArray: [SectionItem]
     
-    init(sectionModalItemArray: [SectionItem]) {
+    init(withItems sectionModalItemArray: [SectionItem]) {
         self.sectionModalItemArray = sectionModalItemArray
     }
     
@@ -75,10 +83,4 @@ fileprivate class SettingsDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionModalItemArray[section].sectionTitle
     }
-    
-    
-    
-    
-    
-    
 }
