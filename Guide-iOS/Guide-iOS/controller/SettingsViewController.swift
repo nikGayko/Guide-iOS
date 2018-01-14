@@ -1,7 +1,11 @@
 import UIKit
 import SwiftyBeaver
 
-class SettingsViewController: BaseViewController {
+protocol SettingsChildController: class {
+    var selectableCellItem: SelectableCellItem? { get set }
+}
+
+class SettingsViewController: BaseViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     private var tableDataSource: UITableViewDataSource?
@@ -12,7 +16,6 @@ class SettingsViewController: BaseViewController {
         super.viewDidLoad()
         
         setupModelItemArray()
-        
         tableDataSource = SettingsDataSource(withItems: sectionModelItemArray)
         
         setupTableView()
@@ -20,7 +23,10 @@ class SettingsViewController: BaseViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBar(isLarge: true)
     }
     
     private func setupModelItemArray() {
@@ -35,6 +41,45 @@ class SettingsViewController: BaseViewController {
         tableView.register(PickerCell.nib, forCellReuseIdentifier: PickerCell.identifier)
         
         tableView.dataSource = tableDataSource
+        tableView.delegate = self
+    }
+    
+    private func pushChildController(withId id: String, eventSender: SelectableCellItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let childController = storyboard.instantiateViewController(withIdentifier: id) as? SettingsChildController {
+            childController.selectableCellItem = eventSender
+            
+            if let vc = childController as? UIViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+    
+    //MARK: - Table View Delegate
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let currentCell = sectionModelItemArray[indexPath.section].sectionCellArray[indexPath.row]
+        
+        if currentCell.isSelectable {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let selectableCurrentCell = sectionModelItemArray[indexPath.section].sectionCellArray[indexPath.row] as? SelectableCellItem else {
+            SwiftyBeaver.error("Cell is not compatible for selection")
+            return
+        }
+        
+        switch selectableCurrentCell.type {
+        case .picker:
+            pushChildController(withId: TableViewController.identifier, eventSender: selectableCurrentCell)
+        case .binary:
+            break
+        }
     }
 }
 

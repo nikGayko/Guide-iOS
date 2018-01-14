@@ -11,29 +11,32 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PickerCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PickerCell" editingAccessoryType="detailButton" id="Lo5-Fg-v5q" customClass="PickerCell" customModule="Guide_iOS" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PickerCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PickerCell" editingAccessoryType="detailDisclosureButton" textLabel="G6y-Cq-bSQ" detailTextLabel="8zl-zN-CdE" style="IBUITableViewCellStyleValue1" id="Lo5-Fg-v5q" customClass="PickerCell" customModule="Guide_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lo5-Fg-v5q" id="Wxa-xt-LhR">
                 <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gek-0i-cLg">
-                        <rect key="frame" x="15" y="0.0" width="326" height="43.5"/>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G6y-Cq-bSQ">
+                        <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8zl-zN-CdE">
+                        <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="gek-0i-cLg" secondAttribute="bottom" id="Lgw-ZG-pbw"/>
-                    <constraint firstItem="gek-0i-cLg" firstAttribute="leading" secondItem="Wxa-xt-LhR" secondAttribute="leading" constant="15" id="WXg-0x-V0B"/>
-                    <constraint firstItem="gek-0i-cLg" firstAttribute="top" secondItem="Wxa-xt-LhR" secondAttribute="top" id="kTW-Yj-kac"/>
-                    <constraint firstAttribute="trailing" secondItem="gek-0i-cLg" secondAttribute="trailing" id="p8R-Us-EQL"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="titleLabel" destination="gek-0i-cLg" id="Ghj-Ly-Afn"/>
+                <outlet property="detailLabel" destination="8zl-zN-CdE" id="xSx-AW-i2H"/>
+                <outlet property="titleLabel" destination="G6y-Cq-bSQ" id="ACG-Xm-elc"/>
             </connections>
             <point key="canvasLocation" x="-4" y="30"/>
         </tableViewCell>

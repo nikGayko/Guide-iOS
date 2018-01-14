@@ -1,5 +1,5 @@
 import Foundation
-
+import UIKit
 //************************************************************
 //----------------------ViewModel for cell--------------------
 //************************************************************
@@ -10,35 +10,68 @@ enum SettingsCellType {
 
 protocol CellItem {
     var type: SettingsCellType { get }
+    var isSelectable: Bool { get }
+}
+
+protocol SelectableCellItem: CellItem {
+    func valueDidChange(newValue: String)
+    func getCurrentValue() -> String?
+    var availableValueArray: [String] { get }
+}
+
+extension SelectableCellItem {
+    var isSelectable: Bool {
+        return true
+    }
 }
 
 class SwitchCellItem: CellItem {
+    let title: String
+    var isOn: Bool
+    var listener: ((Bool) -> Void)?
+    
+    init(title: String, isOn: Bool, valueChangeListener: ((Bool) -> Void)? = nil) {
+        self.isOn = isOn
+        self.title = title
+        self.listener = valueChangeListener
+    }
+    
+    //MARK: - Cell item protocol
     var type: SettingsCellType {
         return .binary
     }
     
-    var isOn: Bool
-    var title: String
-    
-    init(title: String, isOn: Bool) {
-        self.isOn = isOn
-        self.title = title
+    var isSelectable: Bool {
+        return false
     }
 }
 
-class PickerCellItem: CellItem {
+class PickerCellItem: SelectableCellItem {
+    let title: String
+    var listener: ((String) -> Void)?
+    var currentValue: String?
+    
+    init(title: String, currentValue: String, availableValueArray: [String], valueChangeListener: ((String) -> Void)? = nil) {
+        self.title = title
+        self.currentValue = currentValue
+        self.availableValueArray = availableValueArray
+        self.listener = valueChangeListener
+    }
+    
+    //MARK: - Cell item protocol
     var type: SettingsCellType {
         return .picker
     }
     
-    var title: String
-    var currentValue: String
+    func valueDidChange(newValue: String) {
+        currentValue = newValue
+        listener?(newValue)
+    }
+    
     var availableValueArray: [String]
     
-    init(title: String, currentValue: String, availableValueArray: [String]) {
-        self.title = title
-        self.currentValue = currentValue
-        self.availableValueArray = availableValueArray
+    func getCurrentValue() -> String? {
+        return currentValue
     }
 }
 //************************************************************
@@ -64,7 +97,9 @@ class AppSettingsSectionItem: SectionItem {
     private let stopTrackingTitle = "Stop tracking"
     
     private func initCellArray() {
-        let stopTrackingCell = SwitchCellItem(title: stopTrackingTitle, isOn: appSettings.isTracking)
+        let stopTrackingCell = SwitchCellItem(title: stopTrackingTitle, isOn: appSettings.isTracking) { [weak self] newValue in
+            self?.appSettings.isTracking = newValue
+        }
         
         sectionCellArray.append(stopTrackingCell)
     }
@@ -92,11 +127,17 @@ class GpsSettingsSectionItem: SectionItem {
     private var availableRadiusValues = ["50", "100", "200", "500", "1000", "1500", "2000"]
     
     private func initCellArray() {
-        let notifyEnableCell = SwitchCellItem(title: notifyEnableTitle, isOn: gpsSettings.isNotifyEnable)
+        let notifyEnableCell = SwitchCellItem(title: notifyEnableTitle, isOn: gpsSettings.isNotifyEnable) { [weak self] newValue in
+            self?.gpsSettings.isNotifyEnable = newValue
+        }
         let notifyRadiusCell = PickerCellItem(
             title: notifyRadiusTitle,
             currentValue: String(gpsSettings.notifyRadius),
-            availableValueArray: availableRadiusValues)
+            availableValueArray: availableRadiusValues) { [weak self] newValue in
+                if let integerValue = Int(newValue) {
+                    self?.gpsSettings.notifyRadius = integerValue
+                }
+        }
         
         sectionCellArray.append(notifyEnableCell)
         sectionCellArray.append(notifyRadiusCell)
