@@ -19,12 +19,12 @@
 		846270381FF122AF00D1BE5F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846270371FF122AF00D1BE5F /* Parser.swift */; };
 		8462703A1FF128EE00D1BE5F /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846270391FF128EE00D1BE5F /* AppManager.swift */; };
 		8462703C1FF1299A00D1BE5F /* GPSEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462703B1FF1299A00D1BE5F /* GPSEventListener.swift */; };
-		8462703E1FF12E3800D1BE5F /* AppManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462703D1FF12E3800D1BE5F /* AppManagerDelegate.swift */; };
 		849880B720011C07008747DA /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849880B620011C07008747DA /* AppSettings.swift */; };
 		849880B920011C8D008747DA /* GPSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849880B820011C8D008747DA /* GPSSettings.swift */; };
 		849880BD200230EE008747DA /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849880BC200230EE008747DA /* SettingsModel.swift */; };
 		849880BF200378F7008747DA /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849880BE200378F7008747DA /* PickerCell.xib */; };
 		84AA4A73200792C400D59382 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A72200792C400D59382 /* Cache.swift */; };
+		84AA4A75200BDEC500D59382 /* KeyValueObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */; };
 		84AFEC5120067D810069458E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFEC5020067D810069458E /* TableViewController.swift */; };
 		84B4B2B81FF6B9A2006C3910 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B4B2B71FF6B9A2006C3910 /* SwitchCell.xib */; };
 		84B4B2BA1FF6BCF8006C3910 /* SettingsCellGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B2B91FF6BCF8006C3910 /* SettingsCellGroup.swift */; };
@@ -82,12 +82,12 @@
 		846270371FF122AF00D1BE5F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		846270391FF128EE00D1BE5F /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		8462703B1FF1299A00D1BE5F /* GPSEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSEventListener.swift; sourceTree = "<group>"; };
-		8462703D1FF12E3800D1BE5F /* AppManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManagerDelegate.swift; sourceTree = "<group>"; };
 		849880B620011C07008747DA /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		849880B820011C8D008747DA /* GPSSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSSettings.swift; sourceTree = "<group>"; };
 		849880BC200230EE008747DA /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		849880BE200378F7008747DA /* PickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
 		84AA4A72200792C400D59382 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueObserver.swift; sourceTree = "<group>"; };
 		84AFEC5020067D810069458E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		84B4B2B71FF6B9A2006C3910 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		84B4B2B91FF6BCF8006C3910 /* SettingsCellGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellGroup.swift; sourceTree = "<group>"; };
@@ -187,17 +187,9 @@
 				849880B520011BEA008747DA /* settings */,
 				846270311FF0EC9C00D1BE5F /* Sight.swift */,
 				846270331FF0FAC500D1BE5F /* Location.swift */,
+				84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		8462703F1FF12E4800D1BE5F /* app-manager */ = {
-			isa = PBXGroup;
-			children = (
-				846270391FF128EE00D1BE5F /* AppManager.swift */,
-				8462703D1FF12E3800D1BE5F /* AppManagerDelegate.swift */,
-			);
-			path = "app-manager";
 			sourceTree = "<group>";
 		};
 		849880B520011BEA008747DA /* settings */ = {
@@ -254,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				84DBF1FC1FEFBC9F0038C581 /* AppDelegate.swift */,
-				8462703F1FF12E4800D1BE5F /* app-manager */,
+				846270391FF128EE00D1BE5F /* AppManager.swift */,
 				84DBF22A1FEFBDF00038C581 /* network */,
 				846270301FF0EC8400D1BE5F /* model */,
 				84DBF22B1FEFBF810038C581 /* service */,
@@ -661,13 +653,13 @@
 				849880BD200230EE008747DA /* SettingsModel.swift in Sources */,
 				8462703A1FF128EE00D1BE5F /* AppManager.swift in Sources */,
 				84B504F11FF04A440000241C /* BaseViewController.swift in Sources */,
-				8462703E1FF12E3800D1BE5F /* AppManagerDelegate.swift in Sources */,
 				84B504F31FF04D6D0000241C /* SightViewController.swift in Sources */,
 				84F2CD381FF18AE30023B494 /* SettingsViewController.swift in Sources */,
 				84B504F71FF0510F0000241C /* SightCell.swift in Sources */,
 				8462702D1FF0E77C00D1BE5F /* WikipediaAPI.swift in Sources */,
 				841545BF1FF4332400D62388 /* ThemeItems.swift in Sources */,
 				846270361FF0FF7700D1BE5F /* CLLocationCoordinate2D+toLocation().swift in Sources */,
+				84AA4A75200BDEC500D59382 /* KeyValueObserver.swift in Sources */,
 				84DBF22D1FEFBFB10038C581 /* Notification.swift in Sources */,
 				849880B920011C8D008747DA /* GPSSettings.swift in Sources */,
 				849880B720011C07008747DA /* AppSettings.swift in Sources */,
