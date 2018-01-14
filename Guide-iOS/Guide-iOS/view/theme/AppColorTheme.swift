@@ -16,8 +16,8 @@ public class AppColorTheme {
     private func applyColor(_ theme: Theme) {
         UISwitch.appearance().onTintColor = theme.mainColor
         UITabBar.appearance().tintColor = theme.mainColor
-        
-//        UIWindow.appearance().tintColor = color
+        UINavigationBar.appearance().tintColor = theme.mainColor
+        UITableViewCell.appearance().tintColor = theme.mainColor
     }
     
 }

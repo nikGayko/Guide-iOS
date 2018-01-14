@@ -12,4 +12,10 @@ class BaseViewController: UIViewController {
     
     }
     
+    final func setNavigationBar(isLarge: Bool) {
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = isLarge
+        }
+    }
+    
 }

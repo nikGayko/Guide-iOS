@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AppManagerDelegate {
+protocol AppManagerDelegate: class {
     func nearbySightDidChange(newValue value: [Sight])
 }

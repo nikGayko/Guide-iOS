@@ -8,12 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         askNotificationPermission()
         setupLoger()
-        
-        AppManager.shared.launchTracking()
-        
+        AppManager.shared.start()
         return true
     }
     
@@ -32,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
+        //Cache all changes during session
+        AppManager.shared.saveDataInPersistentStorage()
         
     }
 

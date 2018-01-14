@@ -26,9 +26,13 @@ class SightViewController: BaseViewController, AppManagerDelegate, UITableViewDe
         
     }
     
-    private let cellID = "sightCellID"
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBar(isLarge: true)
+    }
+    
     private func setupSightTable() {
-        sightTableView.register(UINib(nibName: "SightCellView", bundle: nil), forCellReuseIdentifier: cellID)
+        sightTableView.register(SightCell.nib, forCellReuseIdentifier: SightCell.identifier)
+        
         sightTableView.delegate = self
         sightTableView.dataSource = self
     }
@@ -48,7 +52,7 @@ class SightViewController: BaseViewController, AppManagerDelegate, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let sightCell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SightCellController else {
+        guard let sightCell = tableView.dequeueReusableCell(withIdentifier: SightCell.identifier, for: indexPath) as? SightCell else {
             SwiftyBeaver.error("Sight cell doesn't exist")
             fatalError()
         }
@@ -57,7 +61,7 @@ class SightViewController: BaseViewController, AppManagerDelegate, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let sightCell = cell as? SightCellController else {
+        guard let sightCell = cell as? SightCell else {
             SwiftyBeaver.error("Sight cell doesn't exist")
             return
         }
