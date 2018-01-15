@@ -4,6 +4,7 @@ class SightCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var sightImage: UIImageView!
     
     public var sight: Sight? {
         didSet {
