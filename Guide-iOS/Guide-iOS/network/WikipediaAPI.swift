@@ -1,42 +1,39 @@
 import Foundation
 import SwiftyBeaver
-import Alamofire
 import ObjectMapper
 
-class WikipediaAPI {
+enum WikipediaAPIOptions {
+    case radius(Int)
+    case responseCount(Int)
+    case thumbnail(Int)
+    case original
+}
 
-    public class func getNearbySights(location: Location, radius: Int, responseCount: Int? = nil, callback: (([Sight]?, Bool) -> Void)? = nil) {
-        
-        var builder = URLBuilder(action: "query", format: "json", list: "geosearch")
+class WikipediaAPI {
+    static let maxRadius = WikipediaAPIOptions.radius(10000)
+    static let maxResponse = WikipediaAPIOptions.responseCount(500)
+    
+    public class func getNearbySights(location: Location, options: [WikipediaAPIOptions]? = nil, callback: @escaping ([Sight]?) -> Void) {
+        var builder = URLBuilder(action: "query", format: "json", generator: "geosearch")
             .buildCoord(location)
-            .buildRadius(radius)
+            .buildProp("pageimages")
+            .buildProp("coordinates")
         
-        if let responseCount = responseCount {
-            builder = builder.buildLimit(responseCount)
+        if let options = options {
+            builder = builder.buildWithOptions(options)
         }
 
         guard let url = builder.getURL().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             SwiftyBeaver.error("Encoding fail")
+            callback(nil)
             return
         }
         
         SwiftyBeaver.info(url)
         
-        
-        Alamofire.request(url).validate().responseJSON(completionHandler: { response in
-            switch response.result {
-            case .success(let json):
-                SwiftyBeaver.info(json)
-
-                let sightArray = Parser.parseSightResponse(object: json)
-                callback?(sightArray, true)
-                
-            case .failure(let error):
-                SwiftyBeaver.error(error)
-                callback?(nil, false)
-            }
+        HttpClient.loadJSON(url: url, callback: { json in
+            let sightArray = Parser.parseSightResponse(json: json)
         })
-        
     }
     
 }

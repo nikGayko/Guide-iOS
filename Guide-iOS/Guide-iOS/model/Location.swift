@@ -16,8 +16,9 @@ struct Location: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        latitude    <- map["lat"]
-        longtitude  <- map["lon"]
+        let currentKey = map.currentKey ?? ""
+        latitude    <- map[currentKey + "lat"]
+        longtitude  <- map[currentKey + "lon"]
     }
     
     

@@ -25,6 +25,8 @@
 		849880BF200378F7008747DA /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849880BE200378F7008747DA /* PickerCell.xib */; };
 		84AA4A73200792C400D59382 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A72200792C400D59382 /* Cache.swift */; };
 		84AA4A75200BDEC500D59382 /* KeyValueObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */; };
+		84AA4A77200BEF7A00D59382 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A76200BEF7A00D59382 /* HttpClient.swift */; };
+		84AA4A79200C118C00D59382 /* SightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A78200C118C00D59382 /* SightImage.swift */; };
 		84AFEC5120067D810069458E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFEC5020067D810069458E /* TableViewController.swift */; };
 		84B4B2B81FF6B9A2006C3910 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B4B2B71FF6B9A2006C3910 /* SwitchCell.xib */; };
 		84B4B2BA1FF6BCF8006C3910 /* SettingsCellGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B2B91FF6BCF8006C3910 /* SettingsCellGroup.swift */; };
@@ -88,6 +90,8 @@
 		849880BE200378F7008747DA /* PickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
 		84AA4A72200792C400D59382 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueObserver.swift; sourceTree = "<group>"; };
+		84AA4A76200BEF7A00D59382 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		84AA4A78200C118C00D59382 /* SightImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightImage.swift; sourceTree = "<group>"; };
 		84AFEC5020067D810069458E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		84B4B2B71FF6B9A2006C3910 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		84B4B2B91FF6BCF8006C3910 /* SettingsCellGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellGroup.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			children = (
 				849880B520011BEA008747DA /* settings */,
 				846270311FF0EC9C00D1BE5F /* Sight.swift */,
+				84AA4A78200C118C00D59382 /* SightImage.swift */,
 				846270331FF0FAC500D1BE5F /* Location.swift */,
 				84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */,
 			);
@@ -280,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				8462702C1FF0E77C00D1BE5F /* WikipediaAPI.swift */,
+				84AA4A76200BEF7A00D59382 /* HttpClient.swift */,
 				8462702E1FF0E89300D1BE5F /* URLBuilder.swift */,
 				846270371FF122AF00D1BE5F /* Parser.swift */,
 			);
@@ -639,12 +645,14 @@
 			files = (
 				84DBF2301FEFC0780038C581 /* GPSManager.swift in Sources */,
 				841545C31FF4370C00D62388 /* AppColorTheme.swift in Sources */,
+				84AA4A77200BEF7A00D59382 /* HttpClient.swift in Sources */,
 				846270341FF0FAC500D1BE5F /* Location.swift in Sources */,
 				841545C51FF43F9700D62388 /* Theme.swift in Sources */,
 				84F47AC31FEFD6540004FE49 /* UIUserNotificationType+authorizationOptions.swift in Sources */,
 				84F2CD3A1FF18BB40023B494 /* TabBarController.swift in Sources */,
 				8462702F1FF0E89300D1BE5F /* URLBuilder.swift in Sources */,
 				846270381FF122AF00D1BE5F /* Parser.swift in Sources */,
+				84AA4A79200C118C00D59382 /* SightImage.swift in Sources */,
 				846270321FF0EC9C00D1BE5F /* Sight.swift in Sources */,
 				84AFEC5120067D810069458E /* TableViewController.swift in Sources */,
 				84DBF1FD1FEFBC9F0038C581 /* AppDelegate.swift in Sources */,

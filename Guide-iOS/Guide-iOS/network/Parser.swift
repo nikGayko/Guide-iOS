@@ -3,8 +3,8 @@ import ObjectMapper
 
 class Parser {
     
-    class func parseSightResponse(object: Any) -> [Sight]? {
-        guard let json = object as? [String: Any] else {
+    class func parseSightResponse(json: [String:Any]?) -> [Sight]? {
+        guard let json = json else {
             return nil
         }
         
@@ -12,10 +12,17 @@ class Parser {
             return nil
         }
         
-        guard let geosearchJSON = queryJSON["geosearch"] else {
+        guard let pagesJSON = queryJSON["pages"] as? [String: Any] else {
             return nil
         }
         
-        return Mapper<Sight>().mapArray(JSONObject: geosearchJSON)
+        var sightArray = [Sight]()
+        for (key, value) in pagesJSON {
+            if let sight = Mapper<Sight>().map(JSONObject: value) {
+                sightArray.append(sight)
+            }
+        }
+        
+        return sightArray
     }
 }
