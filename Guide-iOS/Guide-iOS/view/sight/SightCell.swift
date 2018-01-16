@@ -13,11 +13,29 @@ class SightCell: UITableViewCell {
             }
             
             titleLabel.text = sight.title
-            
             if let distance = sight.distance {
                 distanceLabel.text = "\(Int(distance))"
             }
+            if let thumbnail = sight.thumbnailImage?.image {
+                sightImage.image = thumbnail
+            }
+            
         }
+    }
+    
+    override func awakeFromNib() {
+        setupUI()
+    }
+    
+    override func prepareForReuse() {
+        titleLabel.text = ""
+        distanceLabel.text = ""
+        sightImage.image = nil
+    }
+    
+    private func setupUI() {
+        sightImage.layer.cornerRadius = 20.0
+        sightImage.layer.masksToBounds = true
     }
     
     static var nib:UINib {
@@ -27,5 +45,4 @@ class SightCell: UITableViewCell {
     static var identifier: String {
         return String(describing: self)
     }
-    
 }

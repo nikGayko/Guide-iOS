@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,19 +19,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kT-5L-MwR">
-                        <rect key="frame" x="124.5" y="16" width="219.5" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="J26-0J-Cwg"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yanka Kupala State University of Grodno" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kT-5L-MwR">
+                        <rect key="frame" x="124.5" y="18" width="240.5" height="48"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w9-As-Sem">
-                        <rect key="frame" x="124.5" y="42" width="219.5" height="72"/>
+                        <rect key="frame" x="124.5" y="76" width="240.5" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="J6P-zw-sJ9"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVk-bW-f1K">
@@ -43,16 +42,15 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4w9-As-Sem" firstAttribute="top" secondItem="8kT-5L-MwR" secondAttribute="bottom" constant="5" id="8XM-It-9bc"/>
+                    <constraint firstItem="4w9-As-Sem" firstAttribute="leading" secondItem="CVk-bW-f1K" secondAttribute="trailing" constant="10" id="9AX-qn-OeC"/>
+                    <constraint firstItem="8kT-5L-MwR" firstAttribute="top" secondItem="53S-oW-UVi" secondAttribute="top" constant="18" id="LRL-RO-Gsr"/>
                     <constraint firstItem="CVk-bW-f1K" firstAttribute="leading" secondItem="53S-oW-UVi" secondAttribute="leading" constant="10" id="RZR-KQ-WRX"/>
+                    <constraint firstItem="8kT-5L-MwR" firstAttribute="leading" secondItem="CVk-bW-f1K" secondAttribute="trailing" constant="10" id="Th7-dS-QhB"/>
                     <constraint firstItem="CVk-bW-f1K" firstAttribute="top" secondItem="53S-oW-UVi" secondAttribute="top" constant="10" id="Txf-Y2-Do7"/>
-                    <constraint firstItem="4w9-As-Sem" firstAttribute="leading" secondItem="CVk-bW-f1K" secondAttribute="trailing" constant="10" id="aNC-hU-18S"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="8kT-5L-MwR" secondAttribute="trailing" constant="15" id="fAh-M3-jWp"/>
-                    <constraint firstItem="8kT-5L-MwR" firstAttribute="leading" secondItem="CVk-bW-f1K" secondAttribute="trailing" constant="10" id="mbH-wf-sTx"/>
-                    <constraint firstItem="8kT-5L-MwR" firstAttribute="top" secondItem="53S-oW-UVi" secondAttribute="topMargin" constant="5" id="tMw-VN-sMs"/>
+                    <constraint firstAttribute="trailing" secondItem="4w9-As-Sem" secondAttribute="trailing" constant="10" id="VlG-W7-Wtw"/>
+                    <constraint firstAttribute="trailing" secondItem="8kT-5L-MwR" secondAttribute="trailing" constant="10" id="WMC-7X-aKb"/>
+                    <constraint firstItem="4w9-As-Sem" firstAttribute="top" secondItem="8kT-5L-MwR" secondAttribute="bottom" constant="10" id="o9k-U1-AZr"/>
                     <constraint firstAttribute="bottom" secondItem="CVk-bW-f1K" secondAttribute="bottom" constant="10" id="v4B-Al-3Ht"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4w9-As-Sem" secondAttribute="bottom" id="wLB-fF-go6"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4w9-As-Sem" secondAttribute="trailing" constant="15" id="xdC-aL-YaV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
