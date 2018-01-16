@@ -13,7 +13,7 @@ class WikipediaAPI {
     static let maxRadius = WikipediaAPIOptions.radius(10000)
     static let maxResponse = WikipediaAPIOptions.responseCount(500)
     
-    public class func getNearbySights(location: Location, options: [WikipediaAPIOptions]? = nil, callback: @escaping ([Sight]?) -> Void) {
+    public class func loadNearbySights(location: Location, options: [WikipediaAPIOptions]? = nil, callback: @escaping ([Sight]?) -> Void) {
         var builder = URLBuilder(action: "query", format: "json", generator: "geosearch")
             .buildCoord(location)
             .buildProp("pageimages")
@@ -33,7 +33,26 @@ class WikipediaAPI {
         
         HttpClient.loadJSON(url: url, callback: { json in
             let sightArray = Parser.parseSightResponse(json: json)
+            callback(sightArray)
         })
     }
+    
+    public class func loadThumbnailImage(for sight: Sight, callback: ((Bool) -> Void)? = nil) {
+        guard let url = sight.thumbnailImage?.sourceURL else {
+            callback?(false)
+            return
+        }
+        
+        HttpClient.loadImage(url: url) { image in
+            if let image = image {
+                sight.thumbnailImage?.image = image
+                callback?(true)
+            } else {
+                callback?(false)
+            }
+        }
+        
+    }
+    
     
 }
