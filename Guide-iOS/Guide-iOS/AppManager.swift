@@ -60,13 +60,15 @@ final class AppManager: GPSEventListener {
     }
     
     private func updateNearbySightArray(for location: Location) {
-        WikipediaAPI.getNearbySights(location: location, options: [WikipediaAPI.maxRadius, WikipediaAPI.maxResponse, .original, .thumbnail(400)], callback: {[unowned self] sightArray in
+        WikipediaAPI.loadNearbySights(location: location, options: [WikipediaAPI.maxRadius, WikipediaAPI.maxResponse, .original, .thumbnail(400)]) {[unowned self] sightArray in
             guard let sightArray = sightArray else {
                 SwiftyBeaver.error("Get nil values")
                 return
             }
-            self.nearbySightArray = sightArray
-        })
+            ConcurentWikipediaAPI().loadThumbnailImages(for: sightArray, callback: {
+                self.nearbySightArray = sightArray
+            })
+        }
         
         lastUpdateTime = Date()
     }

@@ -27,6 +27,8 @@
 		84AA4A75200BDEC500D59382 /* KeyValueObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */; };
 		84AA4A77200BEF7A00D59382 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A76200BEF7A00D59382 /* HttpClient.swift */; };
 		84AA4A79200C118C00D59382 /* SightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A78200C118C00D59382 /* SightImage.swift */; };
+		84AA4A7D200CE92100D59382 /* ConcurentWikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A7C200CE92100D59382 /* ConcurentWikipediaAPI.swift */; };
+		84AA4A80200CE9C800D59382 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA4A7F200CE9C800D59382 /* AsyncOperation.swift */; };
 		84AFEC5120067D810069458E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFEC5020067D810069458E /* TableViewController.swift */; };
 		84B4B2B81FF6B9A2006C3910 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B4B2B71FF6B9A2006C3910 /* SwitchCell.xib */; };
 		84B4B2BA1FF6BCF8006C3910 /* SettingsCellGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4B2B91FF6BCF8006C3910 /* SettingsCellGroup.swift */; };
@@ -92,6 +94,8 @@
 		84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueObserver.swift; sourceTree = "<group>"; };
 		84AA4A76200BEF7A00D59382 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		84AA4A78200C118C00D59382 /* SightImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightImage.swift; sourceTree = "<group>"; };
+		84AA4A7C200CE92100D59382 /* ConcurentWikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurentWikipediaAPI.swift; sourceTree = "<group>"; };
+		84AA4A7F200CE9C800D59382 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		84AFEC5020067D810069458E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		84B4B2B71FF6B9A2006C3910 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		84B4B2B91FF6BCF8006C3910 /* SettingsCellGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellGroup.swift; sourceTree = "<group>"; };
@@ -188,11 +192,11 @@
 		846270301FF0EC8400D1BE5F /* model */ = {
 			isa = PBXGroup;
 			children = (
+				84AA4A7E200CE9B200D59382 /* utils */,
 				849880B520011BEA008747DA /* settings */,
 				846270311FF0EC9C00D1BE5F /* Sight.swift */,
 				84AA4A78200C118C00D59382 /* SightImage.swift */,
 				846270331FF0FAC500D1BE5F /* Location.swift */,
-				84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -204,6 +208,15 @@
 				849880B820011C8D008747DA /* GPSSettings.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		84AA4A7E200CE9B200D59382 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				84AA4A74200BDEC500D59382 /* KeyValueObserver.swift */,
+				84AA4A7F200CE9C800D59382 /* AsyncOperation.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		84B4B2BB1FF6BD1E006C3910 /* settings */ = {
@@ -284,6 +297,7 @@
 		84DBF22A1FEFBDF00038C581 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				84AA4A7C200CE92100D59382 /* ConcurentWikipediaAPI.swift */,
 				8462702C1FF0E77C00D1BE5F /* WikipediaAPI.swift */,
 				84AA4A76200BEF7A00D59382 /* HttpClient.swift */,
 				8462702E1FF0E89300D1BE5F /* URLBuilder.swift */,
@@ -650,6 +664,7 @@
 				841545C51FF43F9700D62388 /* Theme.swift in Sources */,
 				84F47AC31FEFD6540004FE49 /* UIUserNotificationType+authorizationOptions.swift in Sources */,
 				84F2CD3A1FF18BB40023B494 /* TabBarController.swift in Sources */,
+				84AA4A7D200CE92100D59382 /* ConcurentWikipediaAPI.swift in Sources */,
 				8462702F1FF0E89300D1BE5F /* URLBuilder.swift in Sources */,
 				846270381FF122AF00D1BE5F /* Parser.swift in Sources */,
 				84AA4A79200C118C00D59382 /* SightImage.swift in Sources */,
@@ -672,6 +687,7 @@
 				849880B920011C8D008747DA /* GPSSettings.swift in Sources */,
 				849880B720011C07008747DA /* AppSettings.swift in Sources */,
 				841545C11FF4355200D62388 /* UIColor+init.swift in Sources */,
+				84AA4A80200CE9C800D59382 /* AsyncOperation.swift in Sources */,
 				84AA4A73200792C400D59382 /* Cache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

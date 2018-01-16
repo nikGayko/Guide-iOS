@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-struct Sight: Mappable {
+class Sight: Mappable {
     
     var pageID: Int64?
     var ns: Int64?
@@ -11,11 +11,11 @@ struct Sight: Mappable {
     var thumbnailImage: SightImage?
     var originImage: SightImage?
     
-    init?(map: Map) {
+    required init?(map: Map) {
         mapping(map: map)
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         pageID          <- map["pageid"]
         ns              <- map["ns"]
         title           <- map["title"]

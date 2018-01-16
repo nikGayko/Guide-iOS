@@ -39,7 +39,9 @@ class SightViewController: BaseViewController, AppManagerDelegate, UITableViewDe
     
     //MARK: AppManagerDelegate
     func nearbySightDidChange(newValue value: [Sight]) {
-        tableContent = value
+        OperationQueue.main.addOperation {
+            self.tableContent = value
+        }
     }
     
     //MARK: tableView datasource & delegate

@@ -17,7 +17,7 @@ class Parser {
         }
         
         var sightArray = [Sight]()
-        for (key, value) in pagesJSON {
+        for (_, value) in pagesJSON {
             if let sight = Mapper<Sight>().map(JSONObject: value) {
                 sightArray.append(sight)
             }
